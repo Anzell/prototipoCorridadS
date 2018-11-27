@@ -5,14 +5,13 @@ class TutorialPage extends StatefulWidget {
 }
 
 class _TutorialPageState extends State<TutorialPage> {
-  PageController _pageController =
-      PageController(initialPage: 0, keepPage: false);
-  int _page = 0;
+  PageController _pageController;
+  int _page = 1;
 
   @override
   void initState() {
     super.initState();
-    _page = _pageController.page.toInt();
+    _pageController = PageController();
   }
 
   @override
@@ -53,7 +52,7 @@ class _TutorialPageState extends State<TutorialPage> {
               ),
               RaisedButton(
                 color: Colors.green,
-                onPressed: (_page != 2)
+                onPressed: (_page != 3)
                     ? () {
                         setState(() {
                           _pageController.nextPage(
