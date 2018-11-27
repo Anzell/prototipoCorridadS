@@ -29,7 +29,7 @@ class _TutorialPageState extends State<TutorialPage> {
             children: <Widget>[
               RaisedButton(
                 color: Colors.redAccent,
-                onPressed: (_page != 0)
+                onPressed: (_page != 1)
                     ? () {
                         setState(() {
                           _pageController.previousPage(
