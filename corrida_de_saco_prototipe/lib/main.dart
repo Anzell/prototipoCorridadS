@@ -3,20 +3,6 @@ import 'package:flutter/material.dart';
 void main() => runApp(HomePage());
 
 class HomePage extends StatelessWidget {
-  Widget buttons(String title) {
-    return Container(
-      height: 50.0,
-      width: 200.0,
-      child: RaisedButton(
-        onPressed: () {},
-        child: Text(
-          "$title",
-          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,11 +34,33 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 20.0),
                 child: Image.asset("assets/corrida.jpg"),
               ),
-              buttons("Jogar"),
+              Container(
+                height: 50.0,
+                width: 200.0,
+                child: RaisedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Como Jogar",
+                    style: TextStyle(
+                        fontSize: 20.0, fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 20.0,
               ),
-              buttons("Cadastro"),
+              Container(
+                height: 50.0,
+                width: 200.0,
+                child: RaisedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Entrar",
+                    style: TextStyle(
+                        fontSize: 20.0, fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 20.0,
               ),
