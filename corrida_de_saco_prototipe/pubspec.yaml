@@ -40,6 +40,9 @@ flutter:
   assets:
       - assets/corrida.jpg
       - assets/face.png
+      - assets/menina.jpg
+      - assets/pulo.png
+      - assets/direcao.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 
