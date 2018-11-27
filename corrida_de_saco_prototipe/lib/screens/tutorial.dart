@@ -34,7 +34,7 @@ class _TutorialPageState extends State<TutorialPage> {
                         setState(() {
                           _pageController.previousPage(
                               duration: Duration(milliseconds: 500),
-                              curve: Cubic(2, 2, 2, 2));
+                              curve: Cubic(2.0, 2.0, 2.0, 2.0));
                           _page--;
                         });
                       }
@@ -57,7 +57,7 @@ class _TutorialPageState extends State<TutorialPage> {
                         setState(() {
                           _pageController.nextPage(
                               duration: Duration(milliseconds: 500),
-                              curve: Cubic(2, 2, 2, 2));
+                              curve: Cubic(2.0, 2.0, 2.0, 2.0));
                           _page++;
                         });
                       }

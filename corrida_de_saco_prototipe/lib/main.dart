@@ -1,3 +1,4 @@
+import 'package:corrida_de_saco_prototipe/screens/inicial.dart';
 import 'package:corrida_de_saco_prototipe/screens/tutorial.dart';
 import 'package:flutter/material.dart';
 
@@ -10,10 +11,10 @@ void main(){
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         
-        bottomAppBarColor: Color.fromRGBO(200, 100, 100, 1),
-        buttonColor: Color.fromRGBO(166, 166, 166, 1),
-        scaffoldBackgroundColor: Color.fromRGBO(255, 224, 204, 1),
-        primaryColor: Color.fromRGBO(200, 100, 100, 1),
+        bottomAppBarColor: Color.fromRGBO(200, 100, 100, 1.0),
+        buttonColor: Color.fromRGBO(166, 166, 166, 1.0),
+        scaffoldBackgroundColor: Color.fromRGBO(255, 224, 204, 1.0),
+        primaryColor: Color.fromRGBO(200, 100, 100, 1.0),
       ),
       title: "Corrida de saco",
     ));
@@ -64,7 +65,10 @@ class HomePage extends StatelessWidget {
               height: 50.0,
               width: 200.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => InicialPage()));
+                },
                 child: Text(
                   "Entrar",
                   style:
