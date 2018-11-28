@@ -87,7 +87,7 @@ class _TutorialPageState extends State<TutorialPage> {
                 ),
                 Image.asset(
                   "assets/menina.jpg",
-                  height: 180.0,
+                  height: MediaQuery.of(context).size.height/4,
                 ),
                 SizedBox(
                   height: 20.0,
@@ -98,8 +98,8 @@ class _TutorialPageState extends State<TutorialPage> {
                     Column(
                       children: <Widget>[
                         Container(
-                          height: 150.0,
-                          width: 150.0,
+                          height: MediaQuery.of(context).size.height/5,
+                          width: MediaQuery.of(context).size.width/2.75,
                           child: Center(
                             child: Text(
                               "Controle a direção rotacionando o botão de direção",
@@ -121,15 +121,15 @@ class _TutorialPageState extends State<TutorialPage> {
                         ),
                         Image.asset(
                           "assets/direcao.png",
-                          height: 90.0,
+                          height: MediaQuery.of(context).size.height/8,
                         )
                       ],
                     ),
                     Column(
                       children: <Widget>[
                         Container(
-                          height: 150.0,
-                          width: 150.0,
+                          height: MediaQuery.of(context).size.height/5,
+                          width: MediaQuery.of(context).size.width/2.75,
                           child: Center(
                             child: Text(
                               "Pule pressionando o botão de pular",
@@ -151,7 +151,7 @@ class _TutorialPageState extends State<TutorialPage> {
                         ),
                         Image.asset(
                           "assets/pulo.png",
-                          height: 90.0,
+                          height: MediaQuery.of(context).size.height/8,
                         )
                       ],
                     ),
@@ -160,7 +160,9 @@ class _TutorialPageState extends State<TutorialPage> {
               ],
             ),
           ),
-          Container(),
+          Container(
+
+          ),
           Container()
         ],
       ),
