@@ -78,256 +78,254 @@ class _TutorialPageState extends State<TutorialPage> {
         controller: _pageController,
         children: <Widget>[
           SingleChildScrollView(
-            child:  Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "Este é seu personagem",
-                  style: TextStyle(fontSize: 20.0),
-                ),
-                Image.asset(
-                  "assets/menina.jpg",
-                  height: MediaQuery.of(context).size.height/4,
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          height: MediaQuery.of(context).size.height/5,
-                          width: MediaQuery.of(context).size.width/2.75,
-                          child: Center(
-                            child: Text(
-                              "Controle a direção rotacionando o botão de direção",
-                              style: TextStyle(
-                                fontSize: 18.0,
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Este é seu personagem",
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  Image.asset(
+                    "assets/menina.jpg",
+                    height: MediaQuery.of(context).size.height / 4,
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            height: MediaQuery.of(context).size.height / 5,
+                            width: MediaQuery.of(context).size.width / 2.75,
+                            child: Center(
+                              child: Text(
+                                "Controle a direção rotacionando o botão de direção",
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
                             ),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0)),
+                                color: Colors.white,
+                                border: Border.all()),
                           ),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20.0)),
-                              color: Colors.white,
-                              border: Border.all()),
-                        ),
-                        Icon(
-                          Icons.arrow_downward,
-                          size: 50.0,
-                        ),
-                        Image.asset(
-                          "assets/direcao.png",
-                          height: MediaQuery.of(context).size.height/8,
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          height: MediaQuery.of(context).size.height/5,
-                          width: MediaQuery.of(context).size.width/2.75,
-                          child: Center(
-                            child: Text(
-                              "Pule pressionando o botão de pular",
-                              style: TextStyle(
-                                fontSize: 18.0,
+                          Icon(
+                            Icons.arrow_downward,
+                            size: 50.0,
+                          ),
+                          Image.asset(
+                            "assets/direcao.png",
+                            height: MediaQuery.of(context).size.height / 8,
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            height: MediaQuery.of(context).size.height / 5,
+                            width: MediaQuery.of(context).size.width / 2.75,
+                            child: Center(
+                              child: Text(
+                                "Pule pressionando o botão de pular",
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
                             ),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0)),
+                                color: Colors.white,
+                                border: Border.all()),
                           ),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20.0)),
-                              color: Colors.white,
-                              border: Border.all()),
-                        ),
-                        Icon(
-                          Icons.arrow_downward,
-                          size: 50.0,
-                        ),
-                        Image.asset(
-                          "assets/pulo.png",
-                          height: MediaQuery.of(context).size.height/8,
-                        )
-                      ],
-                    ),
-                  ],
-                )
-              ],
+                          Icon(
+                            Icons.arrow_downward,
+                            size: 50.0,
+                          ),
+                          Image.asset(
+                            "assets/pulo.png",
+                            height: MediaQuery.of(context).size.height / 8,
+                          )
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ) ,
           ),
-         
-           SingleChildScrollView(
-            child:  Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Column(
-              children: <Widget>[
-               
-                SizedBox(
-                  height: 20.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            
-                        
-                        Image.asset(
-                          "assets/banana.jpg",
-                          height: MediaQuery.of(context).size.height/8,
-                        ),
-                        Icon(
-                          Icons.arrow_left,
-                          size: 50.0,
-                        ),Container(
-                          height: MediaQuery.of(context).size.height/5,
-                          width: MediaQuery.of(context).size.width/2.75,
-                          child: Center(
-                            child: Text(
-                              "Desvie dos obstáculos na pista",
-                              style: TextStyle(
-                                fontSize: 18.0,
+          SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Image.asset(
+                                "assets/banana.jpg",
+                                height: MediaQuery.of(context).size.height / 8,
                               ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20.0)),
-                              color: Colors.white,
-                              border: Border.all()),
-                        ),
-                          ],
-                        ),
-                        SizedBox(height: 20.0,),
-                      Container(
-                          height: MediaQuery.of(context).size.height/5,
-                          width: MediaQuery.of(context).size.width/2.75,
-                          child: Center(
-                            child: Text(
-                              "Cuidado! Pule apenas quando seu personagem estiver no chãolt",
-                              style: TextStyle(
-                                fontSize: 18.0,
+                              Icon(
+                                Icons.arrow_left,
+                                size: 50.0,
                               ),
-                              textAlign: TextAlign.center,
-                            ),
+                              Container(
+                                height: MediaQuery.of(context).size.height / 5,
+                                width: MediaQuery.of(context).size.width / 2.75,
+                                child: Center(
+                                  child: Text(
+                                    "Desvie dos obstáculos na pista",
+                                    style: TextStyle(
+                                      fontSize: 18.0,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20.0)),
+                                    color: Colors.white,
+                                    border: Border.all()),
+                              ),
+                            ],
                           ),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20.0)),
-                              color: Colors.white,
-                              border: Border.all()),
-                        ),
-                        Icon(
-                          Icons.arrow_downward,
-                          size: 50.0,
-                        ),
-                        Image.asset(
-                          "assets/pulo.png",
-                          height: MediaQuery.of(context).size.height/8,
-                        )  
-                      ],
-                    ),
-                   
-                  ],
-                )
-              ],
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Container(
+                            height: MediaQuery.of(context).size.height / 5,
+                            width: MediaQuery.of(context).size.width / 2.75,
+                            child: Center(
+                              child: Text(
+                                "Cuidado! Pule apenas quando seu personagem estiver no chãolt",
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0)),
+                                color: Colors.white,
+                                border: Border.all()),
+                          ),
+                          Icon(
+                            Icons.arrow_downward,
+                            size: 50.0,
+                          ),
+                          Image.asset(
+                            "assets/pulo.png",
+                            height: MediaQuery.of(context).size.height / 8,
+                          )
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ) ,
           ),
-           SingleChildScrollView(
-            child:  Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "Você pode jogar em dupla",
-                  style: TextStyle(fontSize: 20.0),
-                ),
-                Image.asset(
-                  "assets/dupla.png",
-                  height: MediaQuery.of(context).size.height/4,
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          height: MediaQuery.of(context).size.height/5,
-                          width: MediaQuery.of(context).size.width/2.75,
-                          child: Center(
-                            child: Text(
-                              "Em dupla, você e seu aliado deve pular na mesma direção",
-                              style: TextStyle(
-                                fontSize: 18.0,
+          SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Você pode jogar em dupla",
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  Image.asset(
+                    "assets/dupla.png",
+                    height: MediaQuery.of(context).size.height / 4,
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            height: MediaQuery.of(context).size.height / 5,
+                            width: MediaQuery.of(context).size.width / 2.75,
+                            child: Center(
+                              child: Text(
+                                "Em dupla, você e seu aliado deve pular na mesma direção",
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
                             ),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0)),
+                                color: Colors.white,
+                                border: Border.all()),
                           ),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20.0)),
-                              color: Colors.white,
-                              border: Border.all()),
-                        ),
-                        Icon(
-                          Icons.arrow_downward,
-                          size: 50.0,
-                        ),
-                        Image.asset(
-                          "assets/direcao.png",
-                          height: MediaQuery.of(context).size.height/8,
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          height: MediaQuery.of(context).size.height/5,
-                          width: MediaQuery.of(context).size.width/2.75,
-                          child: Center(
-                            child: Text(
-                              "Em dupla, você e seu aliado devem pular ao mesmo tempo",
-                              style: TextStyle(
-                                fontSize: 18.0,
+                          Icon(
+                            Icons.arrow_downward,
+                            size: 50.0,
+                          ),
+                          Image.asset(
+                            "assets/direcao.png",
+                            height: MediaQuery.of(context).size.height / 8,
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            height: MediaQuery.of(context).size.height / 5,
+                            width: MediaQuery.of(context).size.width / 2.75,
+                            child: Center(
+                              child: Text(
+                                "Em dupla, você e seu aliado devem pular ao mesmo tempo",
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
                             ),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0)),
+                                color: Colors.white,
+                                border: Border.all()),
                           ),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20.0)),
-                              color: Colors.white,
-                              border: Border.all()),
-                        ),
-                        Icon(
-                          Icons.arrow_downward,
-                          size: 50.0,
-                        ),
-                        Image.asset(
-                          "assets/pulo.png",
-                          height: MediaQuery.of(context).size.height/8,
-                        )
-                      ],
-                    ),
-                  ],
-                )
-              ],
+                          Icon(
+                            Icons.arrow_downward,
+                            size: 50.0,
+                          ),
+                          Image.asset(
+                            "assets/pulo.png",
+                            height: MediaQuery.of(context).size.height / 8,
+                          )
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ) ,
           ),
         ],
       ),
