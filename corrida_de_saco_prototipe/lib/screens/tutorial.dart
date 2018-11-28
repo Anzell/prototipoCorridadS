@@ -33,7 +33,7 @@ class _TutorialPageState extends State<TutorialPage> {
                     ? () {
                         setState(() {
                           _pageController.previousPage(
-                              duration: Duration(milliseconds: 500),
+                              duration: Duration(milliseconds: 200),
                               curve: Cubic(2, 2, 2, 2));
                           _page--;
                         });
@@ -56,7 +56,7 @@ class _TutorialPageState extends State<TutorialPage> {
                     ? () {
                         setState(() {
                           _pageController.nextPage(
-                              duration: Duration(milliseconds: 500),
+                              duration: Duration(milliseconds: 200),
                               curve: Cubic(2, 2, 2, 2));
                           _page++;
                         });
@@ -77,7 +77,8 @@ class _TutorialPageState extends State<TutorialPage> {
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         children: <Widget>[
-          Padding(
+          SingleChildScrollView(
+            child:  Padding(
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: <Widget>[
@@ -159,9 +160,89 @@ class _TutorialPageState extends State<TutorialPage> {
                 )
               ],
             ),
+          ) ,
           ),
-          Container(
-
+         
+           SingleChildScrollView(
+            child:  Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              children: <Widget>[
+               
+                SizedBox(
+                  height: 20.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            
+                        
+                        Image.asset(
+                          "assets/banana.jpg",
+                          height: MediaQuery.of(context).size.height/8,
+                        ),
+                        Icon(
+                          Icons.arrow_left,
+                          size: 50.0,
+                        ),Container(
+                          height: MediaQuery.of(context).size.height/5,
+                          width: MediaQuery.of(context).size.width/2.75,
+                          child: Center(
+                            child: Text(
+                              "Desvie dos obstáculos na pista",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0)),
+                              color: Colors.white,
+                              border: Border.all()),
+                        ),
+                          ],
+                        ),
+                        SizedBox(height: 20.0,),
+                      Container(
+                          height: MediaQuery.of(context).size.height/5,
+                          width: MediaQuery.of(context).size.width/2.75,
+                          child: Center(
+                            child: Text(
+                              "Cuidado! Pule apenas quando seu personagem estiver no chãolt",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0)),
+                              color: Colors.white,
+                              border: Border.all()),
+                        ),
+                        Icon(
+                          Icons.arrow_downward,
+                          size: 50.0,
+                        ),
+                        Image.asset(
+                          "assets/pulo.png",
+                          height: MediaQuery.of(context).size.height/8,
+                        )  
+                      ],
+                    ),
+                   
+                  ],
+                )
+              ],
+            ),
+          ) ,
           ),
           Container()
         ],
