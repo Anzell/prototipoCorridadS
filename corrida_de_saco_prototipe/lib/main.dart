@@ -1,3 +1,4 @@
+import 'package:corrida_de_saco_prototipe/screens/inicial.dart';
 import 'package:corrida_de_saco_prototipe/screens/tutorial.dart';
 import 'package:flutter/material.dart';
 import 'screens/loading.dart';
@@ -61,7 +62,10 @@ class HomePage extends StatelessWidget {
               height: 50.0,
               width: 200.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => InicialPage()));
+                },
                 child: Text(
                   "Entrar",
                   style:
