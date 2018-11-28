@@ -22,7 +22,7 @@ class BotaoCor extends Container {
                 Navigator.of(state.context, rootNavigator: true)
                     .pop("temadialog");
                 state.setState(() {
-                  CoresDoAplicativoSingleton().COR_TEMA = cor;
+                  PreferenciasDoUsuarioSingleton.COR_TEMA = cor;
                 });
               },
               backgroundColor: cor,
@@ -49,9 +49,9 @@ class _InicialPageState extends State<InicialPage> {
     return Container(
         child: Scaffold(
       appBar: AppBar(
-          backgroundColor: CoresDoAplicativoSingleton().COR_TEMA,
+          backgroundColor: PreferenciasDoUsuarioSingleton.COR_TEMA,
           actions: <Widget>[
-            IconeNoTopo(
+            Icone(
               'assets/gift_iconfinder_7_2185392.png',
               () {
                 print("Clicou gift");
@@ -60,13 +60,13 @@ class _InicialPageState extends State<InicialPage> {
             Container(
               width: 60,
             ),
-            IconeNoTopo('assets/add_user_iconfinder_1902270.png', () {
+            Icone('assets/add_user_iconfinder_1902270.png', () {
               print("Clicou add user");
             }),
             Container(
               width: 30,
             ),
-            IconeNoTopo('assets/options_iconfinder_free-14_463013.png', () {
+            Icone('assets/options_iconfinder_free-14_463013.png', () {
               showDialog(
                   context: context,
                   builder: (BuildContext context) {
@@ -76,27 +76,57 @@ class _InicialPageState extends State<InicialPage> {
                       title: new Text("Tema"),
                       actions: <Widget>[
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            BotaoCor(_state, dialog, Colors.red),
-                            BotaoCor(_state, dialog, Colors.blue),
-                            BotaoCor(_state, dialog, Colors.green),
-                            BotaoCor(_state, dialog, Colors.yellow),
-                          ],
-                        ),
-                        Column(
-                          children: <Widget>[
-                            BotaoCor(_state, dialog, Colors.amber),
-                            BotaoCor(_state, dialog, Colors.black),
-                            BotaoCor(_state, dialog, Colors.black12),
-                            BotaoCor(_state, dialog, Colors.deepOrange),
-                          ],
-                        ),
-                        Column(
-                          children: <Widget>[
-                            BotaoCor(_state, dialog, Colors.lime),
-                            BotaoCor(_state, dialog, Colors.orange),
-                            BotaoCor(_state, dialog, Colors.pinkAccent),
-                            BotaoCor(_state, dialog, Colors.blueGrey),
+                            Row(
+                              children: <Widget>[
+                                BotaoCor(_state, dialog, Colors.red),
+                                BotaoCor(_state, dialog, Colors.blue),
+                                BotaoCor(_state, dialog, Colors.yellow),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                BotaoCor(_state, dialog, Colors.amber),
+                                BotaoCor(_state, dialog, Colors.black),
+                                BotaoCor(_state, dialog, Colors.black12),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                BotaoCor(_state, dialog, Colors.lime),
+                                BotaoCor(_state, dialog, Colors.orange),
+                                BotaoCor(_state, dialog, Colors.pinkAccent),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                BotaoCor(_state, dialog, Colors.blueGrey),
+                                BotaoCor(_state, dialog, Colors.deepOrange),
+                                BotaoCor(_state, dialog, Colors.green),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Icone(
+                                    "assets/iconfinder_speaker_1054973.png", (){
+
+                                    }
+                                ),
+                                Container(
+                                  width: 6,
+                                  height: 2,
+                                ),
+                                Switch(
+                                  value: PreferenciasDoUsuarioSingleton.COM_SOM,
+                                  onChanged: (enabled){
+                                    setState(() {
+                                      PreferenciasDoUsuarioSingleton.COM_SOM = enabled;
+                                    });
+                                  }
+                                )
+                              ],
+                            )
                           ],
                         )
                       ],
@@ -235,16 +265,19 @@ class _InicialPageState extends State<InicialPage> {
             Stack(
               children: <Widget>[
                 Container(
-                  width: 1000,
-                  height: 1000,
-                  color: CoresDoAplicativoSingleton().COR_TEMA,
+                  width: MediaQuery.of(context).size.width,
+                  height: 100,
+                  color: PreferenciasDoUsuarioSingleton.COR_TEMA,
                 ),
-                Align(
-                  child: RaisedButton(
-                      child: Text("JOGAR"),
-                      color: Colors.green,
-                      onPressed: () {}),
-                  alignment: Alignment.center,
+                Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: Align(
+                    child: RaisedButton(
+                        child: Text("JOGAR"),
+                        color: Colors.green,
+                        onPressed: () {}),
+                    alignment: Alignment.center,
+                  ),
                 )
               ],
             )
@@ -255,8 +288,8 @@ class _InicialPageState extends State<InicialPage> {
   }
 }
 
-class IconeNoTopo extends Material {
-  IconeNoTopo(String path, GestureTapCallback quandoClicar)
+class Icone extends Material {
+  Icone(String path, GestureTapCallback quandoClicar)
       : super(
           elevation: 4.0,
           color: Colors.transparent,
