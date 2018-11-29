@@ -178,7 +178,7 @@ class _TutorialPageState extends State<TutorialPage> {
                           Row(
                             children: <Widget>[
                               Image.asset(
-                                "assets/banana.jpg",
+                                "assets/banana.png",
                                 height: MediaQuery.of(context).size.height / 8,
                               ),
                               Icon(

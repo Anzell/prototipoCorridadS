@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:corrida_de_saco_prototipe/screens/jogo.dart';
 import 'package:flutter/material.dart';
 
 class Loading extends StatefulWidget {
@@ -39,8 +40,8 @@ class _LoadingState extends State<Loading> {
                 });
                 Timer(Duration(seconds: 1), () {
                   setState(() {
-                    _value += 0.1;
-                    _message = "Iniciando Jogo";
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => JogoPage()));
                   });
                 });
               });

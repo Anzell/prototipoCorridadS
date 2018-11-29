@@ -33,74 +33,76 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 20.0),
-              child: Image.asset("assets/corrida.jpg"),
-            ),
-            Container(
-              height: 50.0,
-              width: 200.0,
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => TutorialPage()));
-                },
-                child: Text(
-                  "Como Jogar",
-                  style:
-                      TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 20.0),
+                child: Image.asset("assets/corrida.jpg"),
+              ),
+              Container(
+                height: 50.0,
+                width: 200.0,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => TutorialPage()));
+                  },
+                  child: Text(
+                    "Como Jogar",
+                    style:
+                    TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Container(
-              height: 50.0,
-              width: 200.0,
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => InicialPage()));
-                },
-                child: Text(
-                  "Entrar",
-                  style:
-                      TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+              SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                height: 50.0,
+                width: 200.0,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => InicialPage()));
+                  },
+                  child: Text(
+                    "Entrar",
+                    style:
+                    TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Container(
-              height: 50.0,
-              width: 200.0,
-              child: RaisedButton(
-                color: Colors.blueAccent,
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Login com ",
-                      style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.normal),
-                    ),
-                    Image.asset(
-                      "assets/face.png",
-                      height: 35.0,
-                    ),
-                  ],
+              SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                height: 50.0,
+                width: 200.0,
+                child: RaisedButton(
+                  color: Colors.blueAccent,
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Login com ",
+                        style: TextStyle(
+                            fontSize: 20.0, fontWeight: FontWeight.normal),
+                      ),
+                      Image.asset(
+                        "assets/face.png",
+                        height: 35.0,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
+      )
     );
   }
 }
