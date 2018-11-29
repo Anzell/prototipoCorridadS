@@ -1,4 +1,5 @@
 import 'package:corrida_de_saco_prototipe/Global.dart';
+import 'package:corrida_de_saco_prototipe/widgets/Icone.dart';
 import 'package:flutter/material.dart';
 
 class JogoPage extends StatefulWidget {
@@ -22,7 +23,10 @@ class _JogoPageState extends State<JogoPage> {
             child: new Text('CANCELAR'),
           ),
           new FlatButton(
-            onPressed: () => Navigator.of(context).pop(true),
+            onPressed: () {
+              Navigator.of(context).pop(true);
+              Navigator.of(context).pop(true); //pop 2 vezes para não ir para tela de loading
+            },
             child: new Text('SAIR'),
           ),
         ],

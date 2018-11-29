@@ -14,6 +14,7 @@ class _TutorialPageState extends State<TutorialPage> {
     _pageController = PageController();
   }
 
+  bool _botaoConcluir = false; //Se false é mostrado próximo, se true é mostrado um botão de concluir
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,15 +62,21 @@ class _TutorialPageState extends State<TutorialPage> {
                               duration: Duration(milliseconds: 200),
                               curve: Cubic(2, 2, 2, 2));
                           _page++;
+                          _botaoConcluir = _page == 3;
                         });
                       }
-                    : null,
-                child: Row(
-                  children: <Widget>[
-                    Text("Próximo"),
-                    Icon(Icons.navigate_next)
-                  ],
-                ),
+                    : (){
+                        Navigator.of(context).pop(true);
+                    }
+                ,
+                child: _botaoConcluir ?
+                  Text("Próximo") :
+                  Row(
+                    children: <Widget>[
+                      Text("Concluir"),
+                      Icon(Icons.navigate_next)
+                    ],
+                  ),
               )
             ],
           ),

@@ -1,7 +1,9 @@
 import 'package:corrida_de_saco_prototipe/screens/loading.dart';
+import 'package:corrida_de_saco_prototipe/widgets/Icone.dart';
 import 'package:flutter/material.dart';
 import 'package:corrida_de_saco_prototipe/Global.dart';
 import 'package:corrida_de_saco_prototipe/screens/inventory.dart';
+
 class InicialPage extends StatefulWidget {
   @override
   _InicialPageState createState() => _InicialPageState();
@@ -11,20 +13,19 @@ const COR_TRANSPARENTE = Color.fromARGB(0, 255, 0, 0);
 const BORDA_LADO_TRANSPARENTE = BorderSide(color: COR_TRANSPARENTE);
 
 class BotaoCor extends Container {
-  State _state;
   AlertDialog _dialog;
-  Color _cor;
 
-  BotaoCor(State state, AlertDialog d, Color cor)
+  BotaoCor(State stateDialog, State stateTelaInicial, AlertDialog d, Color cor)
       : super(
     child: new RawMaterialButton(
       child: FloatingActionButton(
         onPressed: () {
-          Navigator.of(state.context, rootNavigator: true)
-              .pop("temadialog");
-          state.setState(() {
+          Navigator.of(stateTelaInicial.context, rootNavigator: true).pop("DialogPreferencias");
+          VoidCallback mudarEstado = () {
             PreferenciasDoUsuario.COR_TEMA = cor;
-          });
+          };
+          stateDialog.setState(mudarEstado);
+          stateTelaInicial.setState(mudarEstado);
         },
         backgroundColor: cor,
       ),
@@ -32,11 +33,96 @@ class BotaoCor extends Container {
     width: 40,
     height: 40,
   ) {
-    _state = state;
     _dialog = d;
-    _cor = cor;
   }
 }
+
+class DialogPreferencias extends StatefulWidget {
+  _InicialPageState _stateTelaInicial;
+
+  DialogPreferencias(_InicialPageState stateTelaInicial){
+    _stateTelaInicial = stateTelaInicial;
+  }
+
+  @override
+  _DialogPreferenciasState createState() => _DialogPreferenciasState(_stateTelaInicial);
+}
+
+class _DialogPreferenciasState extends State<DialogPreferencias> {
+  AlertDialog _dialog;
+  _InicialPageState _stateTelaInicial;
+
+  _DialogPreferenciasState(_InicialPageState stateTelaInicial){
+    _stateTelaInicial = stateTelaInicial;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _dialog = AlertDialog(
+      key: Key("DialogPreferencias"),
+      title: new Text("Tema"),
+      content: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.red),
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.blue),
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.yellow),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.amber),
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.black),
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.black12),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.lime),
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.orange),
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.pinkAccent),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.blueGrey),
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.deepOrange),
+              BotaoCor(this, _stateTelaInicial, _dialog, Colors.green),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Icone(
+                  "assets/iconfinder_speaker_1054973.png", () {
+              }
+              ),
+              Container(
+                width: 6,
+                height: 2,
+              ),
+              Switch(
+                  value: PreferenciasDoUsuario.COM_SOM,
+                  onChanged: (enabled) {
+                    setState(() {
+                      PreferenciasDoUsuario.COM_SOM = enabled;
+                    });
+                  }
+              )
+            ],
+          )
+        ],
+      ),
+    );
+    return _dialog;
+  }
+}
+
 
 class _InicialPageState extends State<InicialPage> {
   _InicialPageState _state;
@@ -72,73 +158,9 @@ class _InicialPageState extends State<InicialPage> {
                 ),
                 Icone('assets/options_iconfinder_free-14_463013.png', () {
                   showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        AlertDialog dialog;
-                        dialog = new AlertDialog(
-                          key: Key("temadialog"),
-                          title: new Text("Tema"),
-                          actions: <Widget>[
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    BotaoCor(_state, dialog, Colors.red),
-                                    BotaoCor(_state, dialog, Colors.blue),
-                                    BotaoCor(_state, dialog, Colors.yellow),
-                                  ],
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    BotaoCor(_state, dialog, Colors.amber),
-                                    BotaoCor(_state, dialog, Colors.black),
-                                    BotaoCor(_state, dialog, Colors.black12),
-                                  ],
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    BotaoCor(_state, dialog, Colors.lime),
-                                    BotaoCor(_state, dialog, Colors.orange),
-                                    BotaoCor(_state, dialog, Colors.pinkAccent),
-                                  ],
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    BotaoCor(_state, dialog, Colors.blueGrey),
-                                    BotaoCor(_state, dialog, Colors.deepOrange),
-                                    BotaoCor(_state, dialog, Colors.green),
-                                  ],
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    Icone(
-                                        "assets/iconfinder_speaker_1054973.png", () {
-
-                                    }
-                                    ),
-                                    Container(
-                                      width: 6,
-                                      height: 2,
-                                    ),
-                                    Switch(
-                                        value: PreferenciasDoUsuario
-                                            .COM_SOM,
-                                        onChanged: (enabled) {
-                                          setState(() {
-                                            PreferenciasDoUsuario
-                                                .COM_SOM = enabled;
-                                          });
-                                        }
-                                    )
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        );
-                        return dialog;
-                      });
+                    context: context,
+                    builder: (context) => DialogPreferencias(this)
+                  );
                 }),
                 Container(
                   width: 10,
