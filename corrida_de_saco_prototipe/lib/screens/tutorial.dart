@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:corrida_de_saco_prototipe/Global.dart';
 class TutorialPage extends StatefulWidget {
   _TutorialPageState createState() => _TutorialPageState();
 }
@@ -18,10 +18,12 @@ class _TutorialPageState extends State<TutorialPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: PreferenciasDoUsuario.COR_TEMA,
         title: Text("Tutorial"),
         centerTitle: true,
       ),
       bottomNavigationBar: BottomAppBar(
+        color: PreferenciasDoUsuario.COR_TEMA,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.0),
           child: Row(

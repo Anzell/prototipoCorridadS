@@ -1,7 +1,7 @@
 import 'package:corrida_de_saco_prototipe/screens/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:corrida_de_saco_prototipe/Global.dart';
-
+import 'package:corrida_de_saco_prototipe/screens/inventory.dart';
 class InicialPage extends StatefulWidget {
   @override
   _InicialPageState createState() => _InicialPageState();
@@ -55,6 +55,9 @@ class _InicialPageState extends State<InicialPage> {
                 Icone(
                   'assets/gift_iconfinder_7_2185392.png',
                       () {
+                         Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) => Inventory()));
                     print("Clicou gift");
                   },
                 ),
