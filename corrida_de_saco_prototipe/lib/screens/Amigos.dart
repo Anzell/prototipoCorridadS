@@ -66,9 +66,9 @@ class Amigo extends StatelessWidget{
   }
 }
 
+bool _estaPesquisando = false;
 class _AmigosTelaState extends State<AmigosTela>{
-  bool _estaPesquisando = false;
-  Icon _icone_procurar_fechar = Icon(Icons.search);
+  Icon _icone_procurar_fechar = Icon(_estaPesquisando ? Icons.close : Icons.search);
   IconButton _procurar_fechar;
   Widget _app_bar_title;
   final TextEditingController _filter = new TextEditingController();
@@ -76,14 +76,6 @@ class _AmigosTelaState extends State<AmigosTela>{
   @override
   void initState() {
     super.initState();
-    _procurar_fechar = IconButton(
-      icon: _icone_procurar_fechar,
-      onPressed: (){
-        setState(() {
-          _estaPesquisando = _icone_procurar_fechar.icon == Icons.search;
-        });
-      },
-    );
   }
 
   @override
@@ -107,17 +99,39 @@ class _AmigosTelaState extends State<AmigosTela>{
       _app_bar_title = Text("Seus amigos");
     }
 
+    _procurar_fechar = IconButton(
+      icon: _icone_procurar_fechar,
+      onPressed: (){
+        setState(() {
+          _estaPesquisando = !_estaPesquisando;
+        });
+      },
+    );
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: PreferenciasDoUsuario.COR_TEMA,
-        actions: <Widget>[
-          _procurar_fechar
-        ],
-        title: _app_bar_title,
-      ),
-      body: _estaPesquisando ? TelaDePesquisa(context, this) : TelaDeListaDeAmigos(context, this),
-      backgroundColor: PreferenciasDoUsuario.COR_TEMA,
+    return WillPopScope(
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: PreferenciasDoUsuario.COR_TEMA,
+            actions: <Widget>[
+              _procurar_fechar
+            ],
+            title: _app_bar_title,
+          ),
+          body: _estaPesquisando ? TelaDePesquisa(context, this) : TelaDeListaDeAmigos(context, this),
+          backgroundColor: PreferenciasDoUsuario.COR_TEMA,
+        ),
+        onWillPop: (){
+          return Future((){
+            if(_estaPesquisando){
+              setState(() {
+                _estaPesquisando = false;
+              });
+              return Future(() => false); //Caso o usuário clicar no botão voltar e estiver pesquisando, irá para página de amigos
+            }else{
+              return Future(() => true); //Caso o usuário clicar no botão voltar e não estiver pesquisando, ele irá voltar à tela anterior
+            }
+          });
+        }
     );
   }
 
