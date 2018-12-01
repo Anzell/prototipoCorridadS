@@ -70,10 +70,10 @@ class _TutorialPageState extends State<TutorialPage> {
                     }
                 ,
                 child: _botaoConcluir ?
-                  Text("Próximo") :
+                  Text("Concluir") :
                   Row(
                     children: <Widget>[
-                      Text("Concluir"),
+                      Text("Próximo"),
                       Icon(Icons.navigate_next)
                     ],
                   ),

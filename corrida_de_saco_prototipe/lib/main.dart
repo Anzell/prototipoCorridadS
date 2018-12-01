@@ -1,3 +1,4 @@
+import 'package:corrida_de_saco_prototipe/screens/Amigos.dart';
 import 'package:corrida_de_saco_prototipe/screens/inicial.dart';
 import 'package:corrida_de_saco_prototipe/screens/tutorial.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 child: RaisedButton(
                   onPressed: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => InicialPage()));
+                        MaterialPageRoute(builder: (context) => AmigosTela()));
                   },
                   child: Text(
                     "Entrar",
