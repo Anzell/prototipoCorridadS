@@ -3,7 +3,7 @@ import 'package:corrida_de_saco_prototipe/widgets/Icone.dart';
 import 'package:flutter/material.dart';
 import 'package:corrida_de_saco_prototipe/Global.dart';
 import 'package:corrida_de_saco_prototipe/screens/inventory.dart';
-
+import 'Amigos.dart';
 class InicialPage extends StatefulWidget {
   @override
   _InicialPageState createState() => _InicialPageState();
@@ -144,14 +144,17 @@ class _InicialPageState extends State<InicialPage> {
                          Navigator.of(context).push(
                     MaterialPageRoute(
                         builder: (context) => Inventory()));
-                    print("Clicou gift");
                   },
                 ),
                 Container(
                   width: 60,
                 ),
                 Icone('assets/add_user_iconfinder_1902270.png', () {
-                  print("Clicou add user");
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context)=>AmigosTela()
+                    )
+                  );
                 }),
                 Container(
                   width: 30,

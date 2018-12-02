@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 child: RaisedButton(
                   onPressed: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => AmigosTela()));
+                        MaterialPageRoute(builder: (context) => InicialPage()));
                   },
                   child: Text(
                     "Entrar",
