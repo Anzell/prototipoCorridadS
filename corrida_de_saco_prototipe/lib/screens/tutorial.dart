@@ -118,7 +118,7 @@ class _TutorialPageState extends State<TutorialPage> {
   }
 
   Widget _page3() {
-    SingleChildScrollView(
+    return SingleChildScrollView(
         child: Padding(
             padding: EdgeInsets.all(20.0),
             child: Column(children: <Widget>[
