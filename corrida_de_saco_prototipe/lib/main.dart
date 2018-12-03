@@ -58,10 +58,42 @@ class _HomePageState extends State<HomePage> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Login com ",
+                  GestureDetector(
+                    child: Row(children: <Widget>[
+                        Text("Login com ",
                       style: TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.normal)),
                   Image.asset("assets/face.png", height: 35.0)
+                    ],),
+                    onTap: (){
+                        return showDialog<void>(
+                  context: context,
+                  barrierDismissible: false, // user must tap button!
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                        title: Text('Permissão de Acesso'),
+                        content: SingleChildScrollView(
+                            child: ListBody(children: <Widget>[
+                          Text(
+                              'O aplicativo deseja acessar os seguintes dados no facebook: nome e idade. Isso não permite que o aplicativo poste na sua timeline')
+                        ])),
+                        actions: <Widget>[
+                          FlatButton(
+                              child: Text('Recusar'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              }),
+                          FlatButton(
+                              child: Text('Aceitar'),
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => InicialPage()));
+                              })
+                        ]);
+                  });
+                    },
+                  )
+                
                 ])));
   }
 
