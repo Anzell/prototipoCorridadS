@@ -58,75 +58,57 @@ class _LoadingState extends State<Loading> {
     load();
   }
 
+  Widget _cancelButton() {
+    return RaisedButton(
+        padding: EdgeInsets.all(13.0),
+        color: Colors.redAccent,
+        child: Text(
+          "Cancelar",
+          style: TextStyle(fontSize: 20.0),
+        ),
+        onPressed: () {
+          return showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                    title: Text("Cancelar", textAlign: TextAlign.center),
+                    content: Text("Deseja realmente cancelar a partida?"),
+                    actions: <Widget>[
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            FlatButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text("Não")),
+                            FlatButton(
+                                child: Text("Sim",
+                                    style: TextStyle(color: Colors.redAccent)),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                  Navigator.of(context).pop();
+                                })
+                          ])
+                    ]);
+              });
+        });
+  }
+
   double _value = 0;
   String _message = "Buscando jogadores";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Center(
-            child: CircularProgressIndicator(
-              value: _value,
-            ),
-          ),
-          SizedBox(
-            height: 8.0,
-          ),
-          Text(
-            "${_message}",
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 25.0),
-          ),
-          SizedBox(
-            height: 50.0,
-          ),
-          RaisedButton(
-            padding: EdgeInsets.all(13.0),
-            color: Colors.redAccent,
-            child: Text(
-              "Cancelar",
-              style: TextStyle(fontSize: 20.0),
-            ),
-            onPressed: () {
-              return showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text(
-                        "Cancelar",
-                        textAlign: TextAlign.center,
-                      ),
-                      content: Text("Deseja realmente cancelar a partida?"),
-                      actions: <Widget>[
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            FlatButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text("Não"),
-                            ),
-                            FlatButton(
-                              child: Text("Sim",style: TextStyle(color: Colors.redAccent),),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                                Navigator.of(context).pop();
-                              },
-                            )
-                          ],
-                        ),
-                      ],
-                    );
-                  });
-            },
-          )
-        ],
-      ),
-    );
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+          Center(child: CircularProgressIndicator(value: _value)),
+          SizedBox(height: 8.0),
+          Text("${_message}",
+              textAlign: TextAlign.center, style: TextStyle(fontSize: 25.0)),
+          SizedBox(height: 50.0),
+          _cancelButton()
+        ]));
   }
 }
