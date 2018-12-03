@@ -189,6 +189,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                     duration: Duration(milliseconds: 200),
                                     curve: Cubic(2, 2, 2, 2));
                                 _page--;
+                                 _botaoConcluir = _page == 3;
                               });
                             }
                           : null,
